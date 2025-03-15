@@ -1,0 +1,15 @@
+{
+  "deny":
+    {
+	"any": [         
+		"rohovsky@ZCU.CZ"
+ 	]
+    },
+  "allow":
+    {
+	"any.!(group_x_server|group_x_secondary)": [ 
+		"rohovsky/root@ZCU.CZ"
+	]
+    }
+}
+

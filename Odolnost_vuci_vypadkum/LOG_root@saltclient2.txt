@@ -1,0 +1,78 @@
+root@saltclient2:~# ./finaloutage.sh 
+Sun Feb 16 08:18:34 PM CET 2025 | Monitoring Salt Minion connection and file propagation every 1 seconds
+Sun Feb 16 08:18:34 PM CET 2025 | Now connected to: saltmaster.zcu.cz
+Sun Feb 16 08:20:24 PM CET 2025 | Connection lost
+Sun Feb 16 08:21:04 PM CET 2025 | Connection restored after 40 seconds | Connected to: saltmaster2.zcu.cz
+Sun Feb 16 08:21:04 PM CET 2025 | Now connected to: saltmaster2.zcu.cz
+Sun Feb 16 08:22:51 PM CET 2025 | Propagation time from MasterA: 87s
+Sun Feb 16 08:25:10 PM CET 2025 | Connection lost
+Sun Feb 16 08:26:05 PM CET 2025 | Connection restored after 55 seconds | Connected to: saltmaster.zcu.cz
+Sun Feb 16 08:26:05 PM CET 2025 | Now connected to: saltmaster.zcu.cz
+Sun Feb 16 08:30:14 PM CET 2025 | Connection lost
+Sun Feb 16 08:31:07 PM CET 2025 | Connection restored after 53 seconds | Connected to: saltmaster2.zcu.cz
+Sun Feb 16 08:31:07 PM CET 2025 | Now connected to: saltmaster2.zcu.cz
+Sun Feb 16 08:32:42 PM CET 2025 | Propagation time from MasterA: 88s
+Sun Feb 16 08:35:12 PM CET 2025 | Connection lost
+Sun Feb 16 08:36:08 PM CET 2025 | Connection restored after 56 seconds | Connected to: saltmaster.zcu.cz
+Sun Feb 16 08:36:08 PM CET 2025 | Now connected to: saltmaster.zcu.cz
+Sun Feb 16 08:40:15 PM CET 2025 | Connection lost
+Sun Feb 16 08:41:09 PM CET 2025 | Connection restored after 54 seconds | Connected to: saltmaster2.zcu.cz
+Sun Feb 16 08:41:09 PM CET 2025 | Now connected to: saltmaster2.zcu.cz
+Sun Feb 16 08:42:42 PM CET 2025 | Propagation time from MasterA: 87s
+Sun Feb 16 08:45:22 PM CET 2025 | Connection lost
+Sun Feb 16 08:46:10 PM CET 2025 | Connection restored after 48 seconds | Connected to: saltmaster.zcu.cz
+Sun Feb 16 08:46:10 PM CET 2025 | Now connected to: saltmaster.zcu.cz
+Sun Feb 16 08:50:25 PM CET 2025 | Connection lost
+Sun Feb 16 08:51:11 PM CET 2025 | Connection restored after 46 seconds | Connected to: saltmaster2.zcu.cz
+Sun Feb 16 08:51:11 PM CET 2025 | Now connected to: saltmaster2.zcu.cz
+Sun Feb 16 08:52:53 PM CET 2025 | Propagation time from MasterA: 88s
+Sun Feb 16 08:55:15 PM CET 2025 | Connection lost
+Sun Feb 16 08:56:12 PM CET 2025 | Connection restored after 57 seconds | Connected to: saltmaster.zcu.cz
+Sun Feb 16 08:56:12 PM CET 2025 | Now connected to: saltmaster.zcu.cz
+Sun Feb 16 09:00:28 PM CET 2025 | Connection lost
+Sun Feb 16 09:01:13 PM CET 2025 | Connection restored after 45 seconds | Connected to: saltmaster2.zcu.cz
+Sun Feb 16 09:01:13 PM CET 2025 | Now connected to: saltmaster2.zcu.cz
+Sun Feb 16 09:02:57 PM CET 2025 | Propagation time from MasterA: 89s
+Sun Feb 16 09:05:27 PM CET 2025 | Connection lost
+Sun Feb 16 09:06:14 PM CET 2025 | Connection restored after 47 seconds | Connected to: saltmaster.zcu.cz
+Sun Feb 16 09:06:14 PM CET 2025 | Now connected to: saltmaster.zcu.cz
+Sun Feb 16 09:10:22 PM CET 2025 | Connection lost
+Sun Feb 16 09:11:15 PM CET 2025 | Connection restored after 53 seconds | Connected to: saltmaster2.zcu.cz
+Sun Feb 16 09:11:15 PM CET 2025 | Now connected to: saltmaster2.zcu.cz
+Sun Feb 16 09:12:49 PM CET 2025 | Propagation time from MasterA: 87s
+Sun Feb 16 09:15:17 PM CET 2025 | Connection lost
+Sun Feb 16 09:16:16 PM CET 2025 | Connection restored after 59 seconds | Connected to: saltmaster.zcu.cz
+Sun Feb 16 09:16:16 PM CET 2025 | Now connected to: saltmaster.zcu.cz
+Sun Feb 16 09:20:05 PM CET 2025 | Connection lost
+Sun Feb 16 09:20:17 PM CET 2025 | Connection restored after 12 seconds | Connected to: saltmaster2.zcu.cz
+Sun Feb 16 09:20:17 PM CET 2025 | Now connected to: saltmaster2.zcu.cz
+Sun Feb 16 09:22:32 PM CET 2025 | Propagation time from MasterA: 88s
+Sun Feb 16 09:25:24 PM CET 2025 | Connection lost
+Sun Feb 16 09:26:18 PM CET 2025 | Connection restored after 54 seconds | Connected to: saltmaster.zcu.cz
+Sun Feb 16 09:26:18 PM CET 2025 | Now connected to: saltmaster.zcu.cz
+Sun Feb 16 09:30:13 PM CET 2025 | Connection lost
+Sun Feb 16 09:30:19 PM CET 2025 | Connection restored after 6 seconds | Connected to: saltmaster2.zcu.cz
+Sun Feb 16 09:30:19 PM CET 2025 | Now connected to: saltmaster2.zcu.cz
+Sun Feb 16 09:32:21 PM CET 2025 | Propagation time from MasterA: 69s
+Sun Feb 16 09:35:16 PM CET 2025 | Connection lost
+Sun Feb 16 09:35:20 PM CET 2025 | Connection restored after 4 seconds | Connected to: saltmaster.zcu.cz
+Sun Feb 16 09:35:20 PM CET 2025 | Now connected to: saltmaster.zcu.cz
+Sun Feb 16 09:40:03 PM CET 2025 | Connection lost
+Sun Feb 16 09:40:21 PM CET 2025 | Connection restored after 18 seconds | Connected to: saltmaster2.zcu.cz
+Sun Feb 16 09:40:21 PM CET 2025 | Now connected to: saltmaster2.zcu.cz
+Sun Feb 16 09:42:31 PM CET 2025 | Propagation time from MasterA: 88s
+Sun Feb 16 09:45:05 PM CET 2025 | Connection lost
+Sun Feb 16 09:45:22 PM CET 2025 | Connection restored after 17 seconds | Connected to: saltmaster.zcu.cz
+Sun Feb 16 09:45:22 PM CET 2025 | Now connected to: saltmaster.zcu.cz
+Sun Feb 16 09:50:06 PM CET 2025 | Connection lost
+Sun Feb 16 09:50:23 PM CET 2025 | Connection restored after 17 seconds | Connected to: saltmaster2.zcu.cz
+Sun Feb 16 09:50:23 PM CET 2025 | Now connected to: saltmaster2.zcu.cz
+Sun Feb 16 09:52:24 PM CET 2025 | Propagation time from MasterA: 79s
+Sun Feb 16 09:55:01 PM CET 2025 | Connection lost
+-------------------------------------------
+Total outages: 19
+Total downtime: 741s
+Average outage duration: 39s
+Longest outage: 59s
+Shortest outage: 4s
+-------------------------------------------

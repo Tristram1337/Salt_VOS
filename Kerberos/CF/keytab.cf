@@ -1,0 +1,36 @@
+####
+#
+# spravuje /etc/krb5.keytab
+#
+####
+#
+# Kontrola, ze soubor existuje, bude se muset casem udelat vyjimka na
+# ucebny, kiosky apod.
+#
+####
+
+bundle agent kerberos_keytab {
+files:
+  any::
+    "/etc/krb5.keytab"
+      copy_from => secure_cp("$(zcu.dir_private)/$(sys.fqhost)$(this.promiser)", "$(sys.policy_hub)"),
+      comment => "Ziskani keytabu pro server.",
+      perms => mog("0600", "root", "root"),
+      if => not(fileexists("/etc/krb5.keytab"));
+
+    "/etc/krb5.keytab"
+      perms => mog("0600","root","root"),
+      comment => "Kontrola prav",
+      create => "false";
+
+methods:
+  !(group_enduser_server|group_iotlab)::
+    "keytab_missing"
+      usebundle => zcu_log_json("$(this.bundle).$(this.promiser)", ifelse(fileexists("/etc/krb5.keytab"), "del", "add"), "CRITICAL", "$(this.bundle): Neexistuje /etc/krb5.keytab, pritom se tento stroj tvari jako server, soubor lze vyrobit prikazem:
+    kadmin -p <principle>
+    ank -policy default_nohistory -randkey +requires_preauth host/$(sys.fqhost)@ZCU.CZ
+    ktadd host/$(sys.fqhost)@ZCU.CZ
+    exit
+V krb5.keytab musi byt uvedeny vsechny hostname (nikoliv aliasy), ktere jsou na stroj smerovany. V pripade Round-Robin zaznamu je treba mit stejne KVNO na vsechserverech (resi se zkopirovanim).");
+}
+

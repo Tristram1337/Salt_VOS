@@ -1,0 +1,135 @@
+####
+#
+# spravuje /root/.k5login
+#
+####
+#
+# Zakazuje/nastavuje loginy, ktere lze pouzit pro pristup na roota
+#
+####
+
+bundle agent kerberos_k5login
+{
+vars:
+  any::
+    "json" 
+      data =>  readdata("$(this.promise_dirname)/k5login.json", "JSON"),
+      comment => "Nacten soubor s pravidly pro k5loginy";
+
+    "allow_indx"
+      slist => getindices("json[allow]"),
+      comment => "Seznam klicu (trid) v json datech pro povolene principaly.";
+     
+    "deny_indx"
+      slist => getindices("json[deny]"),
+      comment => "Seznam klicu (trid) v json datech pro zakazane (ke smazani) principaly.";
+
+    "allow_json" data => '[]'; 
+    "allow_json" 
+      data => mergedata("allow_json", "json[allow][$(allow_indx)]"),
+      comment => "Slouceni zaznamu pro povolene principaly, ktere chceme pridat.",
+      ifvarclass => "$(allow_indx)";
+
+    "deny_json" data => '[]'; 
+    "deny_json" 
+      data => mergedata("deny_json", "json[deny][$(deny_indx)]"),
+      comment => "Slouceni zaznamu pro zakazane principaly, ktere chceme smazat.",
+      ifvarclass => "$(deny_indx)";
+    
+    "allow"
+      slist => getvalues(allow_json),
+      comment => "Transform data kontejneru do finalniho seznamu povolenych principalu.";
+        
+    "deny"
+      slist => getvalues(deny_json),
+      comment => "Transform data kontejneru do finalniho seznamu zakazanych principalu.";
+
+
+    "k5login_file"
+      string => "/root/.k5login",
+      comment => "Soubor, pro ktery jsou vyse uvedena pravidla platna.";
+
+  DEBUG|DEBUG_kerberos_k5login::
+    "allow_debug" string => format("%S", "allow_json"); 
+    "deny_debug" string => format("%S", "deny_json"); 
+
+methods:
+  any::
+    "deny"  
+      usebundle => kerberos_k5login_deny("$(k5login_file)", "@(kerberos_k5login.deny)"),
+      comment => "Z $(k5login_file) odstrani vyjmenovane loginy";
+
+    "allow" 
+      usebundle => kerberos_k5login_allow("$(k5login_file)", "@(kerberos_k5login.allow)"),
+      comment => "Do $(k5login_file) prida vyjmenovane loginy.";
+
+    "diff"
+      usebundle => diff_file_substract_report("$(k5login_file)", "@(kerberos_k5login.allow)"),
+      comment => "Vytiskne seznam prebyvajicich loginu v $(k5login_file)";
+
+reports:
+  DEBUG|DEBUG_kerberos_k5login::
+    "DEBUG: bundle $(this.bundle) at $(this.promise_filename)";
+    "$(const.t)Allow (filtered): $(allow_debug)";
+    "$(const.t)Deny (filtered): $(deny_debug)";
+}
+
+#
+# Zruseni vyjmenovanych principalu
+#
+bundle agent kerberos_k5login_deny(file, princ) {
+vars:
+  any::
+    "cfile"
+      string => canonify("$(file)");
+
+classes:
+  any::
+    "kerberos_k5login_deny__modify_$(cfile)"
+      expression => classmatch("kerberos_k5login_deny__deny_.*_in_$(cfile)");
+
+files:
+  any::
+    "$(file)"
+      edit_line => delete_lines_matching("^\s*\Q$(princ)\E\s*$"),
+      comment => "Odstranuji '$(princ)' z $(file) .",
+      edit_defaults => backup_timestamp,
+      create => "true",
+      perms => m("600"),
+      classes => if_repaired("kerberos_k5login_deny__deny_$(princ)_in_$(cfile)");
+
+reports:
+  verbose::
+    "$(this.bundle): Ze souboru $(file) byl odstranen tento '$(princ)' principal."
+      ifvarclass => canonify("kerberos_k5login_deny__deny_$(princ)_in_$(cfile)");
+}
+
+#
+# Povoleni vyjmenovanych principalu
+#
+bundle agent kerberos_k5login_allow(file, princ) {
+vars:
+  any::
+    "cfile"
+      string => canonify("$(file)");
+
+classes:
+  any::
+    "kerberos_k5login_allow__modify_$(cfile)"
+      expression => classmatch("kerberos_k5login_allow_.*_in_$(cfile)");
+
+files:
+  any::
+    "$(file)"
+      edit_line => append_if_no_line("$(princ)"),
+      comment => "Pridavam '$(princ)' do $(file).",
+      edit_defaults => backup_timestamp,
+      create => "true",
+      perms => m("600"),
+      classes => if_repaired("kerberos_k5login_allow__allow_$(princ)_in_$(cfile)");
+
+reports:
+  verbose::
+    "$(this.bundle): Do $(file) byl pridan '$(princ)' principal."
+      ifvarclass => canonify("kerberos_k5login_allow__allow_$(princ)_in_$(cfile)");
+}

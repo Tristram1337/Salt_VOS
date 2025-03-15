@@ -1,0 +1,44 @@
+root@saltmaster:~# ./outagemaster.sh 
+Sun Feb 16 08:18:35 PM CET 2025 | Starting Salt MasterA Monitor
+Sun Feb 16 08:20:00 PM CET 2025 | Random delay of 22 seconds before stopping SaltMasterA
+Sun Feb 16 08:20:22 PM CET 2025 | Stopping SaltMasterA (salt-master)
+Sun Feb 16 08:21:24 PM CET 2025 | Created Salt state file: /srv/salt/propagation_test.sls with timestamp 2025-02-16 20:21:24
+Sun Feb 16 08:22:24 PM CET 2025 | Starting SaltMasterA (salt-master)
+Sun Feb 16 08:30:00 PM CET 2025 | Random delay of 13 seconds before stopping SaltMasterA
+Sun Feb 16 08:30:13 PM CET 2025 | Stopping SaltMasterA (salt-master)
+Sun Feb 16 08:31:14 PM CET 2025 | Created Salt state file: /srv/salt/propagation_test.sls with timestamp 2025-02-16 20:31:14
+Sun Feb 16 08:32:14 PM CET 2025 | Starting SaltMasterA (salt-master)
+Sun Feb 16 08:40:00 PM CET 2025 | Random delay of 14 seconds before stopping SaltMasterA
+Sun Feb 16 08:40:14 PM CET 2025 | Stopping SaltMasterA (salt-master)
+Sun Feb 16 08:41:15 PM CET 2025 | Created Salt state file: /srv/salt/propagation_test.sls with timestamp 2025-02-16 20:41:15
+Sun Feb 16 08:42:15 PM CET 2025 | Starting SaltMasterA (salt-master)
+Sun Feb 16 08:50:00 PM CET 2025 | Random delay of 24 seconds before stopping SaltMasterA
+Sun Feb 16 08:50:24 PM CET 2025 | Stopping SaltMasterA (salt-master)
+Sun Feb 16 08:51:25 PM CET 2025 | Created Salt state file: /srv/salt/propagation_test.sls with timestamp 2025-02-16 20:51:25
+Sun Feb 16 08:52:25 PM CET 2025 | Starting SaltMasterA (salt-master)
+Sun Feb 16 09:00:00 PM CET 2025 | Random delay of 27 seconds before stopping SaltMasterA
+Sun Feb 16 09:00:27 PM CET 2025 | Stopping SaltMasterA (salt-master)
+Sun Feb 16 09:01:28 PM CET 2025 | Created Salt state file: /srv/salt/propagation_test.sls with timestamp 2025-02-16 21:01:28
+Sun Feb 16 09:02:28 PM CET 2025 | Starting SaltMasterA (salt-master)
+Sun Feb 16 09:10:00 PM CET 2025 | Random delay of 21 seconds before stopping SaltMasterA
+Sun Feb 16 09:10:21 PM CET 2025 | Stopping SaltMasterA (salt-master)
+Sun Feb 16 09:11:22 PM CET 2025 | Created Salt state file: /srv/salt/propagation_test.sls with timestamp 2025-02-16 21:11:22
+Sun Feb 16 09:12:22 PM CET 2025 | Starting SaltMasterA (salt-master)
+Sun Feb 16 09:20:00 PM CET 2025 | Random delay of 4 seconds before stopping SaltMasterA
+Sun Feb 16 09:20:04 PM CET 2025 | Stopping SaltMasterA (salt-master)
+Sun Feb 16 09:21:04 PM CET 2025 | Created Salt state file: /srv/salt/propagation_test.sls with timestamp 2025-02-16 21:21:04
+Sun Feb 16 09:22:04 PM CET 2025 | Starting SaltMasterA (salt-master)
+Sun Feb 16 09:30:00 PM CET 2025 | Random delay of 11 seconds before stopping SaltMasterA
+Sun Feb 16 09:30:11 PM CET 2025 | Stopping SaltMasterA (salt-master)
+Sun Feb 16 09:31:12 PM CET 2025 | Created Salt state file: /srv/salt/propagation_test.sls with timestamp 2025-02-16 21:31:12
+Sun Feb 16 09:32:12 PM CET 2025 | Starting SaltMasterA (salt-master)
+Sun Feb 16 09:40:00 PM CET 2025 | Random delay of 3 seconds before stopping SaltMasterA
+Sun Feb 16 09:40:03 PM CET 2025 | Stopping SaltMasterA (salt-master)
+Sun Feb 16 09:41:03 PM CET 2025 | Created Salt state file: /srv/salt/propagation_test.sls with timestamp 2025-02-16 21:41:03
+Sun Feb 16 09:42:03 PM CET 2025 | Starting SaltMasterA (salt-master)
+Sun Feb 16 09:50:00 PM CET 2025 | Random delay of 5 seconds before stopping SaltMasterA
+Sun Feb 16 09:50:05 PM CET 2025 | Stopping SaltMasterA (salt-master)
+Sun Feb 16 09:51:05 PM CET 2025 | Created Salt state file: /srv/salt/propagation_test.sls with timestamp 2025-02-16 21:51:05
+Sun Feb 16 09:52:06 PM CET 2025 | Starting SaltMasterA (salt-master)
+root@saltmaster:~# 
+

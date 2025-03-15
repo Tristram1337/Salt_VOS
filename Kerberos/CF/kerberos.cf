@@ -1,0 +1,21 @@
+####
+#
+# Vola jednotlive bundly pro spravu kerberosu
+#
+####
+
+bundle agent kerberos {
+methods:
+  any::
+    "any" usebundle => kerberos_config,
+      comment => "Spravuje /etc/krb5.conf";
+
+    "any" usebundle => kerberos_k5login,
+      comment => "Spravuje /root/.k5login soubor";
+
+  !group_kiosek::
+    "any" usebundle => kerberos_keytab,
+      comment => "Spravuje /etc/krb5.keytab soubor";
+
+}
+

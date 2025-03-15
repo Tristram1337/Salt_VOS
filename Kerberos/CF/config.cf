@@ -1,0 +1,46 @@
+####
+#
+# spravuje krb5.conf
+#
+####
+#
+# Zatim jen jednoduche kopirovani
+#
+####
+
+bundle agent kerberos_config {
+vars:
+  any::
+    "krb5_conf_suffix"
+      string => "",
+      comment => "Standardne bez pripony, ale existuji vyjimky";
+
+  kronos_zcu_cz::
+    "krb5_conf_suffix"
+      string => "_einfra",
+      comment => "Bug v NFSv4 neumoznuje -R jako default realm, proto upraveny konfigurak v sekci domain_realms.";
+
+  group_filedrawers|group_webdavcgi|camop_civ_zcu_cz|knet_zero_zcu_cz|koleje_zero_zcu_cz|gatek_zcu_cz::
+    "krb5_conf_suffix"
+      string => "_noaddresses",
+      comment => "Server/aplikace vyzaduje povolene noaddress listky.";
+
+files:
+  any::
+    "/etc/krb5.conf"
+      copy_from => backup_local_dcp("$(zcu.dir_templates)/etc/krb5.conf$(krb5_conf_suffix)"),
+      comment => "Template pro krb5.conf",
+      perms => mog("0644","root","root"),
+      edit_defaults => empty,
+      classes => cf2_if_else("file_krb5conf_ok", "file_krb5conf_fail");
+
+methods:
+  any::
+    "krb5conf_fail"
+      usebundle => zcu_log_json("$(this.bundle).$(this.promiser)", ifelse("file_krb5conf_fail", "add", "del"), "CRITICAL", "Nepodardilo se vytvorit /etc/krb5.conf z template $(zcu.dir_templates)/etc/krb5.conf$(krb5_conf_suffix).");
+
+reports:
+  file_krb5conf_ok.verbose::
+    "$(this.bundle): Vytvoren /etc/krb5.conf z template $(zcu.dir_templates)/etc/krb5.conf$(krb5_conf_suffix).";
+}
+
